@@ -1,0 +1,8 @@
+nisl2@nisl2-V50t-Gen-2-13IOB:~$ vim assignment_03.cpp
+nisl2@nisl2-V50t-Gen-2-13IOB:~$ g++ assignment_03.cpp
+nisl2@nisl2-V50t-Gen-2-13IOB:~$ ./a.out
+Enter number of items: 5
+Enter boat capacity: 50
+Enter weights of items: 10 20 30 15 25
+Enter utility values of items: 60  100 120 75 90
+Maximum Utility = 255

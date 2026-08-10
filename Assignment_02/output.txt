@@ -1,0 +1,209 @@
+nisl2@nisl2-V50t-Gen-2-13IOB:~$ g++ assignment_02.cpp
+nisl2@nisl2-V50t-Gen-2-13IOB:~$ ./a.out
+Loaded 10000 movies.
+Sort by: 1-Rating  2-Year  3-Votes : 3
+How many top results to show: 200
+
+Top 200 Movies:
+1. The Shawshank Redemption | 1994 | Rating: 9.3 | Votes: 2804443
+2. The Dark Knight | 2008 | Rating: 9 | Votes: 2786129
+3. Inception | 2010 | Rating: 8.8 | Votes: 2473068
+4. Fight Club | 1999 | Rating: 8.8 | Votes: 2238708
+5. Forrest Gump | 1994 | Rating: 8.8 | Votes: 2182826
+6. Pulp Fiction | 1994 | Rating: 8.9 | Votes: 2150981
+7. Interstellar | 2014 | Rating: 8.7 | Votes: 1995139
+8. The Matrix | 1999 | Rating: 8.7 | Votes: 1994075
+9. The Godfather | 1972 | Rating: 9.2 | Votes: 1954174
+10. The Lord of the Rings: The Fellowship of the Ring | 2001 | Rating: 8.8 | Votes: 1948130
+11. The Lord of the Rings: The Return of the King | 2003 | Rating: 9 | Votes: 1919908
+12. The Dark Knight Rises | 2012 | Rating: 8.4 | Votes: 1779181
+13. Se7en | 1995 | Rating: 8.6 | Votes: 1737317
+14. The Lord of the Rings: The Two Towers | 2002 | Rating: 8.8 | Votes: 1732502
+15. Django Unchained | 2012 | Rating: 8.5 | Votes: 1638136
+16. Gladiator | 2000 | Rating: 8.5 | Votes: 1565932
+17. Batman Begins | 2005 | Rating: 8.2 | Votes: 1537037
+18. Inglourious Basterds | 2009 | Rating: 8.3 | Votes: 1528285
+19. The Wolf of Wall Street | 2013 | Rating: 8.2 | Votes: 1512702
+20. The Silence of the Lambs | 1991 | Rating: 8.6 | Votes: 1496964
+21. Saving Private Ryan | 1998 | Rating: 8.6 | Votes: 1452616
+22. The Avengers | 2012 | Rating: 8 | Votes: 1434553
+23. Star Wars: Episode IV - A New Hope | 1977 | Rating: 8.6 | Votes: 1415712
+24. Schindler's List | 1993 | Rating: 9 | Votes: 1409869
+25. Joker | 2019 | Rating: 8.4 | Votes: 1406091
+26. The Prestige | 2006 | Rating: 8.5 | Votes: 1399151
+27. Shutter Island | 2010 | Rating: 8.2 | Votes: 1398809
+28. The Departed | 2006 | Rating: 8.5 | Votes: 1382399
+29. The Green Mile | 1999 | Rating: 8.6 | Votes: 1363336
+30. Avatar | 2009 | Rating: 7.9 | Votes: 1361849
+31. Star Wars: Episode V - The Empire Strikes Back | 1980 | Rating: 8.7 | Votes: 1344203
+32. The Godfather Part II | 1974 | Rating: 9 | Votes: 1327069
+33. Memento | 2000 | Rating: 8.4 | Votes: 1289271
+34. Back to the Future | 1985 | Rating: 8.5 | Votes: 1265844
+35. Titanic | 1997 | Rating: 7.9 | Votes: 1248344
+36. Guardians of the Galaxy | 2014 | Rating: 8 | Votes: 1245392
+37. Goodfellas | 1990 | Rating: 8.7 | Votes: 1217230
+38. Avengers: Endgame | 2019 | Rating: 8.4 | Votes: 1217214
+39. Léon: The Professional | 1994 | Rating: 8.5 | Votes: 1211195
+40. American Beauty | 1999 | Rating: 8.3 | Votes: 1187390
+41. Pirates of the Caribbean: The Curse of the Black Pearl | 2003 | Rating: 8.1 | Votes: 1176283
+42. WALL·E | 2008 | Rating: 8.4 | Votes: 1166041
+43. Kill Bill: Vol. 1 | 2003 | Rating: 8.2 | Votes: 1160678
+44. American History X | 1998 | Rating: 8.5 | Votes: 1160105
+45. Avengers: Infinity War | 2018 | Rating: 8.4 | Votes: 1157990
+46. V for Vendetta | 2005 | Rating: 8.2 | Votes: 1155640
+47. The Truman Show | 1998 | Rating: 8.2 | Votes: 1148969
+48. Terminator 2: Judgment Day | 1991 | Rating: 8.6 | Votes: 1143575
+49. The Usual Suspects | 1995 | Rating: 8.5 | Votes: 1120459
+50. The Lion King | 1994 | Rating: 8.5 | Votes: 1107680
+51. Iron Man | 2008 | Rating: 7.9 | Votes: 1099223
+52. Star Wars: Episode VI - Return of the Jedi | 1983 | Rating: 8.3 | Votes: 1094964
+53. Up | 2009 | Rating: 8.3 | Votes: 1092218
+54. Deadpool | 2016 | Rating: 8 | Votes: 1089848
+55. Finding Nemo | 2003 | Rating: 8.2 | Votes: 1085120
+56. The Shining | 1980 | Rating: 8.4 | Votes: 1071801
+57. Braveheart | 1995 | Rating: 8.3 | Votes: 1069701
+58. Reservoir Dogs | 1992 | Rating: 8.3 | Votes: 1060958
+59. Catch Me If You Can | 2002 | Rating: 8.1 | Votes: 1050603
+60. Mad Max: Fury Road | 2015 | Rating: 8.1 | Votes: 1050323
+61. Eternal Sunshine of the Spotless Mind | 2004 | Rating: 8.3 | Votes: 1048011
+62. One Flew Over the Cuckoo's Nest | 1975 | Rating: 8.7 | Votes: 1045202
+63. Toy Story | 1995 | Rating: 8.3 | Votes: 1039106
+64. Jurassic Park | 1993 | Rating: 8.2 | Votes: 1036409
+65. Gone Girl | 2014 | Rating: 8.1 | Votes: 1031855
+66. The Sixth Sense | 1999 | Rating: 8.2 | Votes: 1025791
+67. No Country for Old Men | 2007 | Rating: 8.2 | Votes: 1024884
+68. Good Will Hunting | 1997 | Rating: 8.3 | Votes: 1024723
+69. Raiders of the Lost Ark | 1981 | Rating: 8.4 | Votes: 1014569
+70. A Beautiful Mind | 2001 | Rating: 8.2 | Votes: 964171
+71. The Hunger Games | 2012 | Rating: 7.2 | Votes: 962687
+72. Star Wars: Episode VII - The Force Awakens | 2015 | Rating: 7.8 | Votes: 957591
+73. Monsters, Inc. | 2001 | Rating: 8.1 | Votes: 950952
+74. Whiplash | 2014 | Rating: 8.5 | Votes: 934655
+75. Alien | 1979 | Rating: 8.5 | Votes: 920996
+76. Harry Potter and the Deathly Hallows: Part 2 | 2011 | Rating: 8.1 | Votes: 918976
+77. Die Hard | 1988 | Rating: 8.2 | Votes: 913694
+78. The Terminator | 1984 | Rating: 8.1 | Votes: 901362
+79. Avengers: Age of Ultron | 2015 | Rating: 7.3 | Votes: 900747
+80. The Intouchables | 2011 | Rating: 8.5 | Votes: 899776
+81. The Martian | 2015 | Rating: 8 | Votes: 895989
+82. Parasite | 2019 | Rating: 8.5 | Votes: 891514
+83. Snatch | 2000 | Rating: 8.2 | Votes: 887658
+84. Taxi Driver | 1976 | Rating: 8.2 | Votes: 887315
+85. Scarface | 1983 | Rating: 8.3 | Votes: 886450
+86. Thor | 2011 | Rating: 7 | Votes: 882014
+87. Iron Man Three | 2013 | Rating: 7.1 | Votes: 881605
+88. Captain America: The Winter Soldier | 2014 | Rating: 7.8 | Votes: 880415
+89. The Pianist | 2002 | Rating: 8.5 | Votes: 879833
+90. Captain America: The First Avenger | 2011 | Rating: 6.9 | Votes: 877677
+91. Requiem for a Dream | 2000 | Rating: 8.3 | Votes: 876298
+92. Toy Story 3 | 2010 | Rating: 8.3 | Votes: 870867
+93. Slumdog Millionaire | 2008 | Rating: 8 | Votes: 865824
+94. A Clockwork Orange | 1971 | Rating: 8.3 | Votes: 861107
+95. The Grand Budapest Hotel | 2014 | Rating: 8.1 | Votes: 859685
+96. Spider-Man | 2002 | Rating: 7.4 | Votes: 855084
+97. The Hobbit: An Unexpected Journey | 2012 | Rating: 7.8 | Votes: 854004
+98. Iron Man 2 | 2010 | Rating: 6.9 | Votes: 849728
+99. Gravity | 2013 | Rating: 7.7 | Votes: 848871
+100. 300 | 2006 | Rating: 7.6 | Votes: 847087
+101. The Revenant | 2015 | Rating: 8 | Votes: 845558
+102. The Big Lebowski | 1998 | Rating: 8.1 | Votes: 839526
+103. Star Wars: Episode I - The Phantom Menace | 1999 | Rating: 6.5 | Votes: 836839
+104. 12 Angry Men | 1957 | Rating: 9 | Votes: 834248
+105. Spider-Man: No Way Home | 2021 | Rating: 8.2 | Votes: 833734
+106. Donnie Darko | 2001 | Rating: 8 | Votes: 830937
+107. Captain America: Civil War | 2016 | Rating: 7.8 | Votes: 827650
+108. Harry Potter and the Sorcerer's Stone | 2001 | Rating: 7.6 | Votes: 826532
+109. Star Wars: Episode III - Revenge of the Sith | 2005 | Rating: 7.6 | Votes: 825049
+110. The Hangover | 2009 | Rating: 7.7 | Votes: 822544
+111. Black Panther | 2018 | Rating: 7.3 | Votes: 816371
+112. Spirited Away | 2001 | Rating: 8.6 | Votes: 811801
+113. Logan | 2017 | Rating: 8.1 | Votes: 805177
+114. The Imitation Game | 2014 | Rating: 8 | Votes: 804167
+115. Once Upon a Time in Hollywood | 2019 | Rating: 7.6 | Votes: 802493
+116. Blade Runner | 1982 | Rating: 8.1 | Votes: 801595
+117. Black Swan | 2010 | Rating: 8 | Votes: 801250
+118. Gran Torino | 2008 | Rating: 8.1 | Votes: 799209
+119. Man of Steel | 2013 | Rating: 7.1 | Votes: 797850
+120. Thor: Ragnarok | 2017 | Rating: 7.9 | Votes: 793419
+121. Indiana Jones and the Last Crusade | 1989 | Rating: 8.2 | Votes: 792875
+122. I Am Legend | 2007 | Rating: 7.2 | Votes: 792524
+123. The Good, the Bad and the Ugly | 1966 | Rating: 8.8 | Votes: 790685
+124. Ratatouille | 2007 | Rating: 8.1 | Votes: 789815
+125. Kill Bill: Vol. 2 | 2004 | Rating: 8 | Votes: 785888
+126. Sin City | 2005 | Rating: 8 | Votes: 784887
+127. City of God | 2002 | Rating: 8.6 | Votes: 782685
+128. Doctor Strange | 2016 | Rating: 7.5 | Votes: 781422
+129. The Incredibles | 2004 | Rating: 8 | Votes: 780532
+130. Amélie | 2001 | Rating: 8.3 | Votes: 779097
+131. How to Train Your Dragon | 2010 | Rating: 8.1 | Votes: 776835
+132. Prisoners | 2013 | Rating: 8.1 | Votes: 772534
+133. Full Metal Jacket | 1987 | Rating: 8.3 | Votes: 771283
+134. Inside Out | 2015 | Rating: 8.1 | Votes: 755466
+135. Pirates of the Caribbean: Dead Man's Chest | 2006 | Rating: 7.4 | Votes: 748744
+136. Aliens | 1986 | Rating: 8.4 | Votes: 744260
+137. Knives Out | 2019 | Rating: 7.9 | Votes: 742241
+138. Star Wars: Episode II - Attack of the Clones | 2002 | Rating: 6.6 | Votes: 740778
+139. Batman v Superman: Dawn of Justice | 2016 | Rating: 6.5 | Votes: 740666
+140. Arrival | 2016 | Rating: 7.9 | Votes: 738966
+141. The Social Network | 2010 | Rating: 7.8 | Votes: 737059
+142. Guardians of the Galaxy Vol. 2 | 2017 | Rating: 7.6 | Votes: 736895
+143. The Batman | 2022 | Rating: 7.8 | Votes: 734920
+144. X-Men: Days of Future Past | 2014 | Rating: 7.9 | Votes: 732853
+145. Silver Linings Playbook | 2012 | Rating: 7.7 | Votes: 729579
+146. 12 Years a Slave | 2013 | Rating: 8.1 | Votes: 725877
+147. Life Is Beautiful | 1997 | Rating: 8.6 | Votes: 723773
+148. Dune | 2021 | Rating: 8 | Votes: 718186
+149. Skyfall | 2012 | Rating: 7.8 | Votes: 717715
+150. John Wick | 2014 | Rating: 7.4 | Votes: 714596
+151. Edge of Tomorrow | 2014 | Rating: 7.9 | Votes: 714549
+152. Dunkirk | 2017 | Rating: 7.8 | Votes: 713408
+153. Shrek | 2001 | Rating: 7.9 | Votes: 712081
+154. X: First Class | 2011 | Rating: 7.7 | Votes: 712064
+155. Trainspotting | 1996 | Rating: 8.1 | Votes: 710439
+156. Thor: The Dark World | 2013 | Rating: 6.8 | Votes: 709921
+157. Suicide Squad | 2016 | Rating: 5.9 | Votes: 708621
+158. Million Dollar Baby | 2004 | Rating: 8.1 | Votes: 708199
+159. Ant-Man | 2015 | Rating: 7.3 | Votes: 704749
+160. Fargo | 1996 | Rating: 8.1 | Votes: 703938
+161. District 9 | 2009 | Rating: 7.9 | Votes: 703411
+162. Psycho | 1960 | Rating: 8.5 | Votes: 699966
+163. World War Z | 2013 | Rating: 7 | Votes: 699880
+164. 2001: A Space Odyssey | 1968 | Rating: 8.3 | Votes: 699561
+165. Kingsman: The Secret Service | 2014 | Rating: 7.7 | Votes: 697985
+166. The King's Speech | 2010 | Rating: 8 | Votes: 697979
+167. Spider-Man: Homecoming | 2017 | Rating: 7.4 | Votes: 696769
+168. Heat | 1995 | Rating: 8.3 | Votes: 694450
+169. The Hunger Games: Catching Fire | 2013 | Rating: 7.5 | Votes: 693801
+170. Apocalypse Now | 1979 | Rating: 8.4 | Votes: 692940
+171. Pan's Labyrinth | 2006 | Rating: 8.2 | Votes: 689518
+172. Now You See Me | 2013 | Rating: 7.2 | Votes: 689505
+173. The Hobbit: The Desolation of Smaug | 2013 | Rating: 7.8 | Votes: 688257
+174. Spider-Man 2 | 2004 | Rating: 7.5 | Votes: 687129
+175. Wonder Woman | 2017 | Rating: 7.4 | Votes: 685083
+176. The Amazing Spider-Man | 2012 | Rating: 6.9 | Votes: 684858
+177. Drive | 2011 | Rating: 7.8 | Votes: 682913
+178. Casino Royale | 2006 | Rating: 8 | Votes: 679769
+179. American Psycho | 2000 | Rating: 7.6 | Votes: 678928
+180. The Curious Case of Benjamin Button | 2008 | Rating: 7.8 | Votes: 678734
+181. Pirates of the Caribbean: At World's End | 2007 | Rating: 7.1 | Votes: 677214
+182. Harry Potter and the Chamber of Secrets | 2002 | Rating: 7.4 | Votes: 669287
+183. Rogue One: A Star Wars Story | 2016 | Rating: 7.8 | Votes: 668814
+184. Harry Potter and the Prisoner of Azkaban | 2004 | Rating: 7.9 | Votes: 668251
+185. Jurassic World | 2015 | Rating: 6.9 | Votes: 666363
+186. Transformers | 2007 | Rating: 7 | Votes: 663828
+187. Groundhog Day | 1993 | Rating: 8 | Votes: 663331
+188. Harry Potter and the Goblet of Fire | 2005 | Rating: 7.7 | Votes: 659159
+189. Get Out | 2017 | Rating: 7.8 | Votes: 658776
+190. Star Wars: Episode VIII - The Last Jedi | 2017 | Rating: 6.9 | Votes: 657221
+191. Sherlock Holmes | 2009 | Rating: 7.6 | Votes: 656352
+192. Life of Pi | 2012 | Rating: 7.9 | Votes: 653493
+193. Birdman or (The Unexpected Virtue of Ignorance) | 2014 | Rating: 7.7 | Votes: 653223
+194. The Bourne Ultimatum | 2007 | Rating: 8 | Votes: 649785
+195. Her | 2013 | Rating: 8 | Votes: 648495
+196. Frozen | 2013 | Rating: 7.4 | Votes: 648214
+197. Into the Wild | 2007 | Rating: 8.1 | Votes: 643907
+198. 1917 | 2019 | Rating: 8.2 | Votes: 643657
+199. Jaws | 1975 | Rating: 8.1 | Votes: 641151
+200. Ted | 2012 | Rating: 6.9 | Votes: 639813
+nisl2@nisl2-V50t-Gen-2-13IOB:~$ 
+

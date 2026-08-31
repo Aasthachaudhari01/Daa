@@ -1,0 +1,32 @@
+nisl1@nisl1-V50t-Gen-2-13IOB:~$ vim assignment05.cpp
+nisl1@nisl1-V50t-Gen-2-13IOB:~$ g++ assignment05.cpp -o ass5
+nisl1@nisl1-V50t-Gen-2-13IOB:~$ ./ass5
+
+
+Enter number of nodes: 4
+Enter number of stages: 3
+
+Enter stage number for each node:
+Enter stage of node 1: 1
+Enter stage of node 2: 2
+Enter stage of node 3: 2
+Enter stage of node 4: 3
+
+Enter number of routes: 4
+
+Enter route details:
+Format: Source Destination Cost
+Route 1: 1 2 5
+Route 2: 1 3 2
+Route 3: 2 4 3
+Route 4: 3 4 6
+
+Enter source node: 1
+Enter destination node: 4
+
+Source      : 1
+Destination : 4
+Minimum Cost: 8
+Optimal Route: 1 -> 2 -> 4
+nisl1@nisl1-V50t-Gen-2-13IOB:~$ 
+

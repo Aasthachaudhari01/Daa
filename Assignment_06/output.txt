@@ -1,0 +1,15 @@
+nisl1@nisl1-V50t-Gen-2-13IOB:~$ vim assignment_06.cpp
+nisl1@nisl1-V50t-Gen-2-13IOB:~$ g++ assignment_06.cpp -o as06
+nisl1@nisl1-V50t-Gen-2-13IOB:~$ ./as06
+Enter number of items: 4
+Enter truck capacity: 7
+Enter weight and utility value of each item:
+2 10
+3 15
+4 20
+5 25
+
+Maximum Utility Value: 35
+Selected Items:
+Item 3 (Weight: 4 kg, Utility: 20)
+Item 2 (Weight: 3 kg, Utility: 15)

@@ -1,4 +1,6 @@
+
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
 struct Item {
@@ -28,27 +30,19 @@ int main() {
         item[i].ratio = (double)item[i].val / item[i].wt;
     }
 
-    // Sort items by utility/weight ratio
-    for (int i = 0; i < n - 1; i++) {
-        for (int j = i + 1; j < n; j++) {
-            if (item[i].ratio < item[j].ratio) {
-                Item temp = item[i];
-                item[i] = item[j];
-                item[j] = temp;
-            }
-        }
-    }
+    // Sort items by ratio in descending order
+    sort(item, item + n, [](Item a, Item b) {
+        return a.ratio > b.ratio;
+    });
 
     double totalValue = 0;
 
     // Select items
     for (int i = 0; i < n && W > 0; i++) {
-
         if (item[i].wt <= W) {
             W = W - item[i].wt;
             totalValue = totalValue + item[i].val;
-        }
-        else {
+        } else {
             totalValue = totalValue + item[i].ratio * W;
             W = 0;
         }

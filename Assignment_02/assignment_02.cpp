@@ -36,7 +36,7 @@ int quick(Movie arr[], int low, int high, int key) {
         else
             value = arr[j].votes;
 
-        if (value > pivot) {
+        if (value < pivot) {
             i++;
 
             Movie temp = arr[i];

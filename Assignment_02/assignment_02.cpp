@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -11,52 +12,50 @@ struct Movie {
     long votes;
 };
 
-// Parses one CSV line respecting quoted fields (commas inside quotes are not delimiters)
-void parseCSVLine(const string &line, string fields[], int numFields) {
-    int fieldIndex = 0;
-    string current;
-    bool inQuotes = false;
+const int MAX = 100000;
 
-    for (size_t i = 0; i < line.size() && fieldIndex < numFields; i++) {
-        char c = line[i];
-        if (c == '"') {
-            inQuotes = !inQuotes;
-        } else if (c == ',' && !inQuotes) {
-            fields[fieldIndex++] = current;
-            current.clear();
-        } else {
-            current += c;
-        }
-    }
-    if (fieldIndex < numFields) fields[fieldIndex] = current;
-}
-
-int partition(Movie arr[], int low, int high, int key) {
+int quick(Movie arr[], int low, int high, int key) {
     double pivot;
-    if (key == 1) pivot = arr[high].rating;
-    else if (key == 2) pivot = arr[high].year;
-    else pivot = arr[high].votes;
+
+    if (key == 1)
+        pivot = arr[high].rating;
+    else if (key == 2)
+        pivot = arr[high].year;
+    else
+        pivot = arr[high].votes;
 
     int i = low - 1;
 
     for (int j = low; j < high; j++) {
-        double val;
-        if (key == 1) val = arr[j].rating;
-        else if (key == 2) val = arr[j].year;
-        else val = arr[j].votes;
+        double value;
 
-        if (val > pivot) {
+        if (key == 1)
+            value = arr[j].rating;
+        else if (key == 2)
+            value = arr[j].year;
+        else
+            value = arr[j].votes;
+
+        if (value > pivot) {
             i++;
-            swap(arr[i], arr[j]);
+
+            Movie temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
         }
     }
-    swap(arr[i + 1], arr[high]);
+
+    Movie temp = arr[i + 1];
+    arr[i + 1] = arr[high];
+    arr[high] = temp;
+
     return i + 1;
 }
 
 void quickSort(Movie arr[], int low, int high, int key) {
     if (low < high) {
-        int pi = partition(arr, low, high, key);
+        int pi = quick(arr, low, high, key);
+
         quickSort(arr, low, pi - 1, key);
         quickSort(arr, pi + 1, high, key);
     }
@@ -64,54 +63,66 @@ void quickSort(Movie arr[], int low, int high, int key) {
 
 int main() {
     ifstream file("movie.csv");
+
     if (!file.is_open()) {
-        cout << "Error: Cannot open movie.csv" << endl;
+        cout << "Cannot open movie.csv" << endl;
         return 1;
     }
 
-    const int MAX_MOVIES = 10000;
-    Movie* movies = new Movie[MAX_MOVIES];
+    Movie movies[MAX];
     int n = 0;
     string line;
 
-    getline(file, line); // skip header
+    getline(file, line); // Skip header
 
-    while (getline(file, line) && n < MAX_MOVIES) {
+    while (getline(file, line) && n < MAX) {
+        stringstream ss(line);
         string fields[6];
-        parseCSVLine(line, fields, 6);
 
-        try {
-            movies[n].title = fields[1];
-            movies[n].year = stoi(fields[2]);
-            movies[n].rating = stod(fields[4]);
-            movies[n].votes = stol(fields[5]);
-            n++;
-        } catch (...) {
-            continue; 
-        }
+        for (int i = 0; i < 6; i++)
+            getline(ss, fields[i], ',');
+
+        movies[n].title = fields[1];
+        movies[n].year = stoi(fields[2]);
+        movies[n].rating = stod(fields[4]);
+        movies[n].votes = stol(fields[5]);
+
+        n++;
     }
+
     file.close();
 
-    cout << "Loaded " << n << " movies.\n";
-    cout << "Sort by: 1-Rating  2-Year  3-Votes : ";
+    cout << "Loaded " << n << " movies." << endl;
+    cout << "Sort by: 1-Rating  2-Year  3-Votes: ";
+
     int key;
     cin >> key;
+
+    if (key < 1 || key > 3) {
+        cout << "Invalid choice!" << endl;
+        return 1;
+    }
 
     quickSort(movies, 0, n - 1, key);
 
     int topN;
-    cout << "How many top results to show: ";
+    cout << "How many movies to display? ";
     cin >> topN;
-    if (topN > n) topN = n;
 
-    cout << "\nTop " << topN << " Movies:\n";
+    if (topN < 0)
+        topN = 0;
+
+    if (topN > n)
+        topN = n;
+
+    cout << "\nTop Movies:\n";
+
     for (int i = 0; i < topN; i++) {
-        cout << (i + 1) << ". " << movies[i].title
-             << " | " << movies[i].year
+        cout << i + 1 << ". " << movies[i].title
+             << " | Year: " << movies[i].year
              << " | Rating: " << movies[i].rating
              << " | Votes: " << movies[i].votes << endl;
     }
 
-    delete[] movies;
     return 0;
 }

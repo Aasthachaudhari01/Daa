@@ -1,26 +1,56 @@
+
 #include <iostream>
 using namespace std;
 
+const int MAX = 100;
+
 int main() {
     int n, e, rooms, totalStudents;
-    int graph[100][100] = {0};
-    int color[100], students[100];
+    int head[MAX], to[MAX * MAX], next[MAX * MAX];
+    int color[MAX], students[MAX];
+    int edgeCount = 0;
+
+    for (int i = 0; i < MAX; i++)
+        head[i] = -1;
 
     cout << "Enter number of courses: ";
     cin >> n;
 
+    if (n < 1 || n > MAX) {
+        cout << "Invalid number of courses.\n";
+        return 0;
+    }
+
     cout << "Enter number of conflicting course pairs: ";
     cin >> e;
 
+    if (e < 0 || e > n * (n - 1) / 2) {
+        cout << "Invalid number of conflicting pairs.\n";
+        return 0;
+    }
+
     cout << "Enter conflicting course pairs (0-based indexing):\n";
+
     for (int i = 0; i < e; i++) {
         int u, v;
         cin >> u >> v;
-        graph[u][v] = 1;
-        graph[v][u] = 1;
+
+        if (u < 0 || u >= n || v < 0 || v >= n || u == v) {
+            cout << "Invalid course pair.\n";
+            return 0;
+        }
+
+        to[edgeCount] = v;
+        next[edgeCount] = head[u];
+        head[u] = edgeCount++;
+
+        to[edgeCount] = u;
+        next[edgeCount] = head[v];
+        head[v] = edgeCount++;
     }
 
     cout << "Enter number of students enrolled in each course:\n";
+
     for (int i = 0; i < n; i++) {
         cout << "Course " << i << ": ";
         cin >> students[i];
@@ -31,28 +61,29 @@ int main() {
 
     cout << "Enter total available seats in all classrooms: ";
     cin >> totalStudents;
-    // Initialize colors
-    for (int i = 0; i < n; i++) {
-        color[i] = -1;
-    }
 
-    // Greedy Graph Coloring
+    for (int i = 0; i < n; i++)
+        color[i] = -1;
+
     int maxColor = -1;
 
+    // Greedy Graph Coloring
     for (int i = 0; i < n; i++) {
-        int available[100] = {0};
+        bool available[MAX];
 
-        for (int j = 0; j < n; j++) {
-            if (graph[i][j] == 1 && color[j] != -1) {
-                available[color[j]] = 1;
-            }
+        for (int c = 0; c < n; c++)
+            available[c] = true;
+
+        for (int j = head[i]; j != -1; j = next[j]) {
+            int neighbor = to[j];
+
+            if (color[neighbor] != -1)
+                available[color[neighbor]] = false;
         }
 
-        int c;
-        for (c = 0; c < n; c++) {
-            if (available[c] == 0)
-                break;
-        }
+        int c = 0;
+        while (c < n && !available[c])
+            c++;
 
         color[i] = c;
 
@@ -61,7 +92,8 @@ int main() {
     }
 
     int slots = maxColor + 1;
-     cout << "\n========== EXAM TIMETABLE ==========\n";
+
+    cout << "\n========== EXAM TIMETABLE ==========\n";
 
     for (int s = 0; s < slots; s++) {
         int courseCount = 0;
@@ -89,23 +121,18 @@ int main() {
     cout << "Total Classrooms Available: " << rooms << endl;
     cout << "Total Classroom Seating Capacity: "
          << totalStudents << endl;
-        if (slots >= rooms) {
-        cout << " Insufficient Classrooms\n";
-    }
 
     int total = 0;
-    for (int i = 0; i < n; i++) {
+
+    for (int i = 0; i < n; i++)
         total += students[i];
-    }
 
     cout << "Total Course Enrollments: " << total << endl;
 
-    if (total >= totalStudents)
-         cout << "Seating Capacity: Insufficient\n";
+    if (total > totalStudents)
+        cout << "Seating Capacity: Insufficient\n";
 
     cout << "=====================================\n";
 
     return 0;
 }
-                                                                                                                                      112,1         Bot
-

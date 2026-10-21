@@ -1,134 +1,138 @@
+
 #include <iostream>
+#include <queue>
 using namespace std;
 
-#define MAX 100
-#define INF 99999
+#define MAX 1000
+#define INF 999999
 
-int graph[MAX][MAX];
-int stage[MAX];
-int cost[MAX];
-int nextNode[MAX];
+struct Edge {
+    int dest, cost;
+    Edge* next;
+};
 
-int main()
-{
-    int n, stages, edges;
+Edge* adj[MAX];
+int dist[MAX], parent[MAX], stage[MAX];
+
+void addRoute(int u, int v, int cost) {
+    Edge* temp = new Edge;
+    temp->dest = v;
+    temp->cost = cost;
+    temp->next = adj[u];
+    adj[u] = temp;
+}
+
+void dijkstra(int source, int destination, int n) {
+    for (int i = 1; i <= n; i++) {
+        dist[i] = INF;
+        parent[i] = -1;
+    }
+
+    priority_queue<pair<int, int>,
+                   greater<pair<int, int> > > pq;
+
+    dist[source] = 0;
+    pq.push(make_pair(0, source));
+
+    while (!pq.empty()) {
+        int cost = pq.top().first;
+        int u = pq.top().second;
+        pq.pop();
+
+        if (cost != dist[u])
+            continue;
+
+        if (u == destination)
+            break;
+
+        Edge* temp = adj[u];
+
+        while (temp != NULL) {
+            int v = temp->dest;
+            int newCost = dist[u] + temp->cost;
+
+            if (newCost < dist[v]) {
+                dist[v] = newCost;
+                parent[v] = u;
+                pq.push(make_pair(dist[v], v));
+            }
+
+            temp = temp->next;
+        }
+    }
+
+    cout << "\nSource      : " << source;
+    cout << "\nDestination : " << destination;
+
+    if (dist[destination] == INF) {
+        cout << "\nNo route available\n";
+        return;
+    }
+
+    cout << "\nMinimum Cost: " << dist[destination];
+
+    int path[MAX], count = 0;
+    int current = destination;
+
+    while (current != -1) {
+        path[count++] = current;
+        current = parent[current];
+    }
+
+    cout << "\nOptimal Route: ";
+
+    for (int i = count - 1; i >= 0; i--) {
+        cout << path[i];
+
+        if (i > 0)
+            cout << " -> ";
+    }
+
+    cout << endl;
+}
+
+int main() {
+    int n, stages, routes;
     int source, destination;
 
-
-    // Number of nodes
-    cout << "\nEnter number of nodes: ";
+    cout << "Enter number of nodes: ";
     cin >> n;
 
-    // Number of stages
     cout << "Enter number of stages: ";
     cin >> stages;
 
-    // Stage of each node
+    for (int i = 1; i <= n; i++)
+        adj[i] = NULL;
+
     cout << "\nEnter stage number for each node:\n";
 
-    for (int i = 1; i <= n; i++)
-    {
+    for (int i = 1; i <= n; i++) {
         cout << "Enter stage of node " << i << ": ";
         cin >> stage[i];
     }
 
-    // Initialize graph
-    for (int i = 1; i <= n; i++)
-    {
-        for (int j = 1; j <= n; j++)
-        {
-            graph[i][j] = 0;
-        }
-    }
-
-    // Number of routes
     cout << "\nEnter number of routes: ";
-    cin >> edges;
+    cin >> routes;
 
-    // Routes
     cout << "\nEnter route details:\n";
     cout << "Format: Source Destination Cost\n";
 
-    for (int i = 0; i < edges; i++)
-    {
-        int u, v, w;
+    for (int i = 1; i <= routes; i++) {
+        int u, v, cost;
 
-        cout << "Route " << i + 1 << ": ";
-        cin >> u >> v >> w;
+        cout << "Route " << i << ": ";
+        cin >> u >> v >> cost;
 
-        graph[u][v] = w;
+        addRoute(u, v, cost);
     }
 
-    // Source and destination
     cout << "\nEnter source node: ";
     cin >> source;
 
     cout << "Enter destination node: ";
     cin >> destination;
 
-    // Initialize cost and next node
-    for (int i = 1; i <= n; i++)
-    {
-        cost[i] = INF;
-        nextNode[i] = -1;
-    }
-
-    // Destination cost is 0
-    cost[destination] = 0;
-
-    // Dynamic Programming
-    // Process stages from last to first
-    for (int s = stages - 1; s >= 1; s--)
-    {
-        for (int u = 1; u <= n; u++)
-        {
-            if (stage[u] == s)
-            {
-                for (int v = 1; v <= n; v++)
-                {
-                    if (graph[u][v] != 0)
-                    {
-                        if (graph[u][v] + cost[v] < cost[u])
-                        {
-                            cost[u] = graph[u][v] + cost[v];
-                            nextNode[u] = v;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    // Display result
-    if (cost[source] == INF)
-    {
-        cout << "\nNo route exists from "
-             << source << " to "
-             << destination << ".\n";
-    }
-    else
-    {
-
-        cout << "Source      : " << source << endl;
-        cout << "Destination : " << destination << endl;
-        cout << "Minimum Cost: " << cost[source] << endl;
-
-        cout << "Optimal Route: ";
-
-        int current = source;
-
-        while (current != -1)
-        {
-            cout << current;
-
-            if (current == destination)
-                break;
-
-            cout << " -> ";
-            current = nextNode[current];
-        }
-
-    }
+    dijkstra(source, destination, n);
 
     return 0;
 }

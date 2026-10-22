@@ -5,116 +5,92 @@
 #include <string>
 using namespace std;
 
-struct Movie {
-    string title;
-    int year;
-    double rating;
-    long votes;
-};
+void merge(double arr[], int left, int mid, int right) {
+    int n1 = mid - left + 1;
+    int n2 = right - mid;
 
-const int MAX = 100000;
+    double L[n1], R[n2];
 
-int quick(Movie arr[], int low, int high, int key) {
-    double pivot;
+    for (int i = 0; i < n1; i++)
+        L[i] = arr[left + i];
 
-    if (key == 1)
-        pivot = arr[high].rating;
-    else if (key == 2)
-        pivot = arr[high].year;
-    else
-        pivot = arr[high].votes;
+    for (int i = 0; i < n2; i++)
+        R[i] = arr[mid + 1 + i];
 
-    int i = low - 1;
+    int i = 0, j = 0, k = left;
 
-    for (int j = low; j < high; j++) {
-        double value;
-
-        if (key == 1)
-            value = arr[j].rating;
-        else if (key == 2)
-            value = arr[j].year;
+    while (i < n1 && j < n2) {
+        if (L[i] <= R[j])
+            arr[k++] = L[i++];
         else
-            value = arr[j].votes;
-
-        if (value > pivot) {
-            i++;
-
-            Movie temp = arr[i];
-            arr[i] = arr[j];
-            arr[j] = temp;
-        }
+            arr[k++] = R[j++];
     }
 
-    Movie temp = arr[i + 1];
-    arr[i + 1] = arr[high];
-    arr[high] = temp;
+    while (i < n1)
+        arr[k++] = L[i++];
 
-    return i + 1;
+    while (j < n2)
+        arr[k++] = R[j++];
 }
 
-void quickSort(Movie arr[], int low, int high, int key) {
-    if (low < high) {
-        int pi = quick(arr, low, high, key);
+void mergeSort(double arr[], int left, int right) {
+    if (left >= right)
+        return;
 
-        quickSort(arr, low, pi - 1, key);
-        quickSort(arr, pi + 1, high, key);
-    }
+    int mid = left + (right - left) / 2;
+
+    mergeSort(arr, left, mid);
+    mergeSort(arr, mid + 1, right);
+    merge(arr, left, mid, right);
 }
 
 int main() {
-    ifstream file("movie.csv");
+    ifstream file("Social_Media_Engagement.csv");
 
     if (!file.is_open()) {
-        cout << "Cannot open movie.csv" << endl;
+        cout << "Error: Cannot open file!" << endl;
         return 1;
     }
 
-    Movie movies[MAX];
+    string line, cell;
+    double engagement[2000];
     int n = 0;
-    string line;
 
-    getline(file, line); // Skip header
+    getline(file, line);
 
-    while (getline(file, line) && n < MAX) {
+    while (getline(file, line)) {
+        if (n >= 2000) {
+            cout << "Array limit reached!" << endl;
+            break;
+        }
+
         stringstream ss(line);
-        string fields[6];
 
-        for (int i = 0; i < 6; i++)
-            getline(ss, fields[i], ',');
+        while (getline(ss, cell, ',')) {
+        }
 
-        movies[n].title = fields[1];
-        movies[n].year = stoi(fields[2]);
-        movies[n].rating = stod(fields[4]);
-        movies[n].votes = stol(fields[5]);
+        if (cell.empty())
+            continue;
 
-        n++;
+        engagement[n++] = stod(cell);
     }
 
     file.close();
 
-    cout << "Loaded " << n << " movies." << endl;
-    cout << "Sort by: 1-Rating  2-Year  3-Votes: ";
-
-    int key;
-    cin >> key;
-
-    if (key < 1 || key > 3) {
-        cout << "Invalid choice!" << endl;
-        return 1;
+    if (n == 0) {
+        cout << "No valid engagement values found." << endl;
+        return 0;
     }
 
-    quickSort(movies, 0, n - 1, key);
+    mergeSort(engagement, 0, n - 1);
 
-    int topN;
-    cout << "How many sorted values to show: ";
-    cin >> topN;
+    cout << "Sorted Engagement Values:\n";
 
-    if (topN < 0) topN = 0;
-    if (topN > n) topN = n;
+    for (int i = 0; i < n; i++) {
+        cout << engagement[i] << " ";
+    }
 
-    cout << "\nSorted Engagement Values:\n";
+    cout << endl;
 
-    for (int i = 0; i < topN; i++)
-        cout << i + 1 << ". " << engagement[i] << endl;
     return 0;
 }

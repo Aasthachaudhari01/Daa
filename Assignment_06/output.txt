@@ -1,6 +1,3 @@
-nisl1@nisl1-V50t-Gen-2-13IOB:~$ vim assignment_06.cpp
-nisl1@nisl1-V50t-Gen-2-13IOB:~$ g++ assignment_06.cpp -o as06
-nisl1@nisl1-V50t-Gen-2-13IOB:~$ ./as06
 Enter number of items: 4
 Enter truck capacity: 7
 Enter weight and utility value of each item:

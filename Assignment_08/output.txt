@@ -1,6 +1,3 @@
-nisl2@nisl2-V50t-Gen-2-13IOB:~$ vim assignment_08.cpp
-nisl2@nisl2-V50t-Gen-2-13IOB:~$ g++ assignment_08.cpp
-nisl2@nisl2-V50t-Gen-2-13IOB:~$ ./a.out
 Enter number of cities (maximum 15): 4
 Enter the cost matrix (-1 for no direct route):
 -1 10 15 20

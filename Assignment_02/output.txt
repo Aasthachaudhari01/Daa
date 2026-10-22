@@ -1,6 +1,5 @@
-nisl2@nisl2-V50t-Gen-2-13IOB:~$ g++ assignment_02.cpp
-nisl2@nisl2-V50t-Gen-2-13IOB:~$ ./a.out
-Loaded 10000 movies.
+
+
 
 How many top results to show: 200
 
@@ -205,5 +204,5 @@ Top 200 Movies:
 198. 1917 | 2019 | Rating: 8.2 | Votes: 643657
 199. Jaws | 1975 | Rating: 8.1 | Votes: 641151
 200. Ted | 2012 | Rating: 6.9 | Votes: 639813
-nisl2@nisl2-V50t-Gen-2-13IOB:~$ 
+
 

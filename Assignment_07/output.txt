@@ -1,6 +1,3 @@
-nisl1@nisl1-V50t-Gen-2-13IOB:~$ vim assignment_07.cpp
-nisl1@nisl1-V50t-Gen-2-13IOB:~$ g++ assignment_07.cpp -o as07
-nisl1@nisl1-V50t-Gen-2-13IOB:~$ ./as07
 Enter number of courses: 4
 Enter number of conflicting course pairs: 4
 Enter conflicting course pairs (0-based indexing):
@@ -41,5 +38,5 @@ Total Classrooms Available: 4
 Total Classroom Seating Capacity: 280
 Total Course Enrollments: 155
 =====================================
-nisl1@nisl1-V50t-Gen-2-13IOB:~$ 
+
 

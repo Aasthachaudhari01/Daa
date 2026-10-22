@@ -1,6 +1,3 @@
-nisl1@nisl1-V50t-Gen-2-13IOB:~$ vim dijkstra.cpp
-nisl1@nisl1-V50t-Gen-2-13IOB:~$ g++ dijkstra.cpp -o da
-nisl1@nisl1-V50t-Gen-2-13IOB:~$ ./da
 Smart City Emergency Route System
 
 Enter number of intersections: 5

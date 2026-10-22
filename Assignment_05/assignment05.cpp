@@ -1,6 +1,5 @@
 
 #include <iostream>
-#include <queue>
 using namespace std;
 
 #define MAX 1000
@@ -12,7 +11,9 @@ struct Edge {
 };
 
 Edge* adj[MAX];
-int dist[MAX], parent[MAX], stage[MAX];
+int stage[MAX];
+int dp[MAX];
+int nextNode[MAX];
 
 void addRoute(int u, int v, int cost) {
     Edge* temp = new Edge;
@@ -22,73 +23,68 @@ void addRoute(int u, int v, int cost) {
     adj[u] = temp;
 }
 
-void dijkstra(int source, int destination, int n) {
+void dynamicProgramming(int source, int destination,
+                        int n, int stages) {
+    // Step 1: Initialize DP table
     for (int i = 1; i <= n; i++) {
-        dist[i] = INF;
-        parent[i] = -1;
+        dp[i] = INF;
+        nextNode[i] = -1;
     }
 
-    priority_queue<pair<int, int>,
-                   greater<pair<int, int> > > pq;
+    // Base case: Cost from destination to itself is zero
+    dp[destination] = 0;
 
-    dist[source] = 0;
-    pq.push(make_pair(0, source));
+    // Step 2: Process stages backward
+    for (int s = stages - 1; s >= 1; s--) {
+        for (int u = 1; u <= n; u++) {
+            if (stage[u] == s) {
+                Edge* temp = adj[u];
 
-    while (!pq.empty()) {
-        int cost = pq.top().first;
-        int u = pq.top().second;
-        pq.pop();
+                // Step 3: Apply DP recurrence
+                while (temp != NULL) {
+                    int v = temp->dest;
+                    int weight = temp->cost;
 
-        if (cost != dist[u])
-            continue;
+                    if (dp[v] != INF) {
+                        int newCost = weight + dp[v];
 
-        if (u == destination)
-            break;
+                        if (newCost < dp[u]) {
+                            dp[u] = newCost;
+                            nextNode[u] = v;
+                        }
+                    }
 
-        Edge* temp = adj[u];
-
-        while (temp != NULL) {
-            int v = temp->dest;
-            int newCost = dist[u] + temp->cost;
-
-            if (newCost < dist[v]) {
-                dist[v] = newCost;
-                parent[v] = u;
-                pq.push(make_pair(dist[v], v));
+                    temp = temp->next;
+                }
             }
-
-            temp = temp->next;
         }
     }
 
+    // Step 4: Display minimum cost and path
     cout << "\nSource      : " << source;
     cout << "\nDestination : " << destination;
 
-    if (dist[destination] == INF) {
+    if (dp[source] == INF) {
         cout << "\nNo route available\n";
         return;
     }
 
-    cout << "\nMinimum Cost: " << dist[destination];
-
-    int path[MAX], count = 0;
-    int current = destination;
-
-    while (current != -1) {
-        path[count++] = current;
-        current = parent[current];
-    }
-
+    cout << "\nMinimum Cost: " << dp[source];
     cout << "\nOptimal Route: ";
 
-    for (int i = count - 1; i >= 0; i--) {
-        cout << path[i];
+    int current = source;
 
-        if (i > 0)
-            cout << " -> ";
+    while (current != destination) {
+        cout << current << " -> ";
+        current = nextNode[current];
+
+        if (current == -1) {
+            cout << "No route available\n";
+            return;
+        }
     }
 
-    cout << endl;
+    cout << destination << endl;
 }
 
 int main() {
@@ -101,8 +97,9 @@ int main() {
     cout << "Enter number of stages: ";
     cin >> stages;
 
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i++) {
         adj[i] = NULL;
+    }
 
     cout << "\nEnter stage number for each node:\n";
 
@@ -132,7 +129,7 @@ int main() {
     cout << "Enter destination node: ";
     cin >> destination;
 
-    dijkstra(source, destination, n);
+    dynamicProgramming(source, destination, n, stages);
 
     return 0;
 }

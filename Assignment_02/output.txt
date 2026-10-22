@@ -1,7 +1,7 @@
 nisl2@nisl2-V50t-Gen-2-13IOB:~$ g++ assignment_02.cpp
 nisl2@nisl2-V50t-Gen-2-13IOB:~$ ./a.out
 Loaded 10000 movies.
-Sort by: 1-Rating  2-Year  3-Votes : 3
+
 How many top results to show: 200
 
 Top 200 Movies:

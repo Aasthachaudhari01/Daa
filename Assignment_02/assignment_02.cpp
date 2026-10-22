@@ -93,7 +93,7 @@ int main() {
     file.close();
 
     cout << "Loaded " << n << " movies." << endl;
-    cout << "Sort by: 1-Rating  2-Year  3-Votes: ";
+    
 
     int key;
     cin >> key;
